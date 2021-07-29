@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
+import Movies from "./Movies";
 import Viewers from "./Viewers";
 
 class Home extends Component {
@@ -10,6 +11,7 @@ class Home extends Component {
       <Container>
         <ImgSlider />
         <Viewers />
+        <Movies />
       </Container>
     );
   }
