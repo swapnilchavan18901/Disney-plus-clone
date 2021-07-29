@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
+import Viewers from "./Viewers";
 
 class Home extends Component {
   state = {};
@@ -8,6 +9,7 @@ class Home extends Component {
     return (
       <Container>
         <ImgSlider />
+        <Viewers />
       </Container>
     );
   }
