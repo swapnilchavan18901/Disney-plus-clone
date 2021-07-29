@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import "./App.css";
 import Details from "./components/Details";
+import Login from "./components/Login";
 function App() {
   return (
     <React.Fragment>
@@ -20,6 +21,9 @@ function App() {
           <Switch>
             <Route path="/details">
               <Details />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
             <Route path="/">
               <Home />

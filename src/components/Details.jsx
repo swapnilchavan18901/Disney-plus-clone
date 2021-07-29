@@ -133,4 +133,6 @@ const Description = styled.div`
   margin-top: 16px;
   line-height: 1.4;
   color: rgb(249, 249, 249);
+  max-width: 760px;
+  margin-top: 40px;
 `;
