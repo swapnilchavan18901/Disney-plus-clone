@@ -43,13 +43,14 @@ const Content = styled.div`
   margin-top: 30px;
   display: grid;
   grid-gap: 25px;
+  overflow-y: hidden;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 `;
 
 const Wrap = styled.div`
   border-radius: 10px;
   cursor: pointer;
-  overflow-y: hidden;
+  overflow: hidden;
   border: 3px solid rgba(249, 249, 249, 0.1);
   box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
     rgb(0 0 0 / 73%) 0px 16px 10px -10px;

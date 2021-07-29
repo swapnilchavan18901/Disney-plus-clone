@@ -125,5 +125,12 @@ const GroupButton = styled(AddButton)`
 const SubTitle = styled.div`
   font-size: 15px;
   color: rgb(249, 249, 249);
+  margin-top: 26px;
+  min-height: 20px;
 `;
-const Description = styled.div``;
+const Description = styled.div`
+  font-size: 20px;
+  margin-top: 16px;
+  line-height: 1.4;
+  color: rgb(249, 249, 249);
+`;
