@@ -1,44 +1,54 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
-
+import db from "../firebase";
 const Details = () => {
+  const { id } = useParams();
+  const [movie, setMovie] = useState(0);
+
+  useEffect(() => {
+    //Grab the movie Infos from DB=
+    db.collection("movies")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          // Save the movie Data
+          setMovie(doc.data());
+        } else {
+          // if movie doesnt exist redirect to home page
+        }
+      });
+  }, []);
+
   return (
     <Container>
       <Background>
-        <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4F39B7E16726ECF419DD7C49E011DD95099AA20A962B0B10AA1881A70661CE45/scale?width=1440&aspectRatio=1.78&format=jpeg" />
+        <img src={movie.backgroundImg} />
       </Background>
 
       <ImageTitle>
-        <img
-          src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/D7AEE1F05D10FC37C873176AAA26F777FC1B71E7A6563F36C6B1B497CAB1CEC2/scale?width=1440&aspectRatio=1.78"
-          alt=""
-        />
+        <img src={movie.titleImg} />
       </ImageTitle>
 
       <Controls>
         <PlayButton>
-          <img src="/images/play-icon-black.png" alt="" />
+          <img src="/images/play-icon-black.png" />
           <span>PLAY</span>
         </PlayButton>
         <TrailerButton>
-          <img src="/images/play-icon-white.png" alt="" />
+          <img src="/images/play-icon-white.png" />
           <span>Trailer</span>
         </TrailerButton>
         <AddButton>
           <span>+</span>
         </AddButton>
         <GroupButton>
-          <img src="/images/group-icon.png" alt="" />
+          <img src="/images/group-icon.png" />
         </GroupButton>
       </Controls>
-      <SubTitle>ajaakjsssaisjaskalsmalsalajdkadkanalmslamdlamdladla</SubTitle>
-      <Description>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-        adipisci explicabo suscipit alias, odit labore dicta perferendis
-        laboriosam est ad inventore sint libero quasi excepturi tenetur sit quos
-        deleniti assumenda neque laudantium ut quaerat minus ipsam quis! Quis,
-        iusto explicabo?
-      </Description>
+      <SubTitle>{movie.subTitle}</SubTitle>
+      <Description>{movie.description}</Description>
     </Container>
   );
 };
@@ -71,8 +81,8 @@ const ImageTitle = styled.div`
   position: relative;
   img {
     width: 100%;
+    border: 0px;
     height: 100%;
-
     object-fit: contain;
   }
 `;

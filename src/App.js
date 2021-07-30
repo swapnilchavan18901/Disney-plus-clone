@@ -1,12 +1,6 @@
 import React from "react";
 import { Counter } from "./features/counter/Counter";
-import {
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  BrowserRouter as Router,
-} from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import "./App.css";
@@ -19,7 +13,7 @@ function App() {
         <Router>
           <Header />
           <Switch>
-            <Route path="/details">
+            <Route path="/detail/:id">
               <Details />
             </Route>
             <Route path="/login">
